@@ -12,24 +12,21 @@ package SlidingWindow;
 public class MinSizeSubArraySum {
 
     public static void findMinSubArray(){
-        int arr[] = {2, 1, 5, 2, 8}; int s=7;
+        int arr[] = {2, 1, 2, 2, 8}; int s=7;
 
-        int minLenght = arr.length;
+        int minLength = arr.length;
         int start = 0;
-        int sum = arr[start]; int length = 1;
+        int sum = 0;
 
-        for(int end = 1; end <= arr.length - 1; end++) {
-            if(sum >= s){
-                minLenght = length;
-                start ++;
+        for(int end = 0; end <= arr.length - 1; end++) {
+            sum += arr[end];
+            while(sum >= s){
+                minLength = Math.min(minLength, end - start + 1);
                 sum -= arr[start];
-                length--;
-            } else {
-                sum += arr[end];
-                length++;
+                start ++;
             }
         }
-        System.out.println(minLenght);
+        System.out.println(minLength);
     }
 
     public static void main(String[] args) {
