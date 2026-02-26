@@ -10,7 +10,7 @@ public class RemoveDuplicates {
         for(int i = 1; i < arr.length; i++){
             if(arr[i] != arr[nextNonDuplicate - 1]){
                 arr[nextNonDuplicate] = arr[i];
-                nextNonDuplicate ++;c
+                nextNonDuplicate ++;
             }
         }
         return nextNonDuplicate;
