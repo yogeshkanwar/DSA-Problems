@@ -36,14 +36,44 @@ public class LinkedList {
         }
     }
 
+    public void reverseList(LinkedList list){
+        Node current = start;
+        Node previous = null;
+
+        while (current != null){
+            Node next = current.next;
+            current.next = previous;
+            previous = current;
+            current = next;
+        }
+        start = previous;
+        printList(list);
+
+    }
+
+    public static void search(int value){
+        Node current = start;
+        while(current.next != null){
+            if(current.value == value){
+                System.out.println("value find");
+                break;
+            }
+            current = current.next;
+        }
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
         list.add(10);
         list.add(20);
         list.add(30);
-        list.remove(30);
-        printList(list);
+        list.add(50);
+//        list.remove(30);
+        list.reverseList(list);
+//        list.search(20);
     }
+
+
 
     public static void printList(LinkedList list){
         Node current = start;
